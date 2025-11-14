@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manchester City Fan Club</title>
+    <style>
+        /* RESET */
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; scroll-behavior: smooth;}
+
+        /* BLUE SHADES */
+        :root {
+            --sky-blue: #6CABDD;
+            --dark-blue: #004C97;
+            --light-blue: #AED6F1;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+        }
+
+        body {
+            background-color: var(--gray);
+            color: var(--dark-blue);
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(90deg, var(--sky-blue), var(--dark-blue));
+            color: var(--white);
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--white);
+            text-shadow: 0 0 10px var(--light-blue);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {text-shadow: 0 0 5px var(--light-blue), 0 0 10px var(--sky-blue);}
+            100% {text-shadow: 0 0 20px var(--light-blue), 0 0 30px var(--sky-blue);}
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--light-blue);
+            text-shadow: 0 0 5px var(--white);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(120deg, var(--sky-blue), var(--light-blue));
+            text-align: center;
+            padding: 180px 20px;
+            animation: heroBg 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroBg {
+            0% {background: linear-gradient(120deg, var(--sky-blue), var(--light-blue));}
+            50% {background: linear-gradient(120deg, var(--light-blue), var(--sky-blue));}
+            100% {background: linear-gradient(120deg, var(--sky-blue), var(--dark-blue));}
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            color: var(--white);
+            text-shadow: 0 0 15px var(--dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--white);
+            text-shadow: 0 0 10px var(--sky-blue);
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 14px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--sky-blue);
+            color: var(--dark-blue);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 70px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--dark-blue);
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            text-shadow: 0 0 5px var(--sky-blue);
+            animation: glow 3s infinite alternate;
+        }
+
+        p {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: var(--sky-blue);
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--light-blue);
+        }
+
+        .important {
+            color: var(--dark-blue);
+            font-weight: bold;
+        }
+
+
+        /* CARDS GRID */
+        .grid {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin-top: 35px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: var(--sky-blue);
+            margin-bottom: 12px;
+            text-shadow: 0 0 5px var(--light-blue);
+        }
+
+        .card p {
+            color: var(--dark-blue);
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(90deg, var(--dark-blue), var(--sky-blue));
+            color: var(--white);
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--light-blue);
+            text-shadow: 0 0 5px var(--white);
+        }
+
+        /* COUNTDOWN */
+        .countdown {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--sky-blue);
+            margin-top: 20px;
+            text-shadow: 0 0 5px var(--light-blue);
+        }
+
+        /* FORM */
+        form input[type="text"], form input[type="email"] {
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--sky-blue);
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Manchester City Fan Club</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#legends">Legends & Stars</a>
+        <a href="#matches">Matches</a>
+        <a href="#news">News</a>
+        <a href="#fans">Fan Zone</a>
+        <a href="#contact">Join</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Welcome to the Ultimate <span class="highlight">Manchester City</span> Fan Club!</h1>
+    <p>Celebrate the <span class="highlight">Sky Blues</span>, relive legendary moments, and connect with fans worldwide!</p>
+    <button class="btn">Join the Fan Club</button>
+</section>
+
+<section id="about">
+    <h2>About Manchester City</h2>
+    <p>Founded in <span class="highlight">1880</span> as St. Mark’s, <span class="highlight">Manchester City</span> became a powerhouse in English football. Known as <span class="highlight">The Citizens</span> or <span class="highlight">The Sky Blues</span>, City has won <span class="highlight">9 Premier League titles</span>, <span class="highlight">6 FA Cups</span>, <span class="highlight">8 EFL Cups</span>, and the <span class="highlight">UEFA Champions League</span> in 2023.</p>
+    <p class="important">Fun Fact: Manchester City set a record with <span class="highlight">100 points</span> in the 2017-18 Premier League season!</p>
+</section>
+
+<section id="legends">
+    <h2>Club Legends & Current Stars</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="aguero.jpg" alt="Sergio Aguero">
+            <h3>Sergio Agüero</h3>
+            <p>All-time top scorer, known for his <span class="highlight">iconic goals</span>.</p>
+        </div>
+        <div class="card">
+            <img src="yaya.jpg" alt="Yaya Toure">
+            <h3>Yaya Touré</h3>
+            <p>Midfield magician and <span class="highlight">creative force</span> of the club.</p>
+        </div>
+        <div class="card">
+            <img src="haaland.jpg" alt="Erling Haaland">
+            <h3>Erling Haaland</h3>
+            <p>Current star striker, <span class="highlight">goal machine</span> for Manchester City.</p>
+        </div>
+        <div class="card">
+            <img src="debruyne.jpg" alt="Kevin De Bruyne">
+            <h3>Kevin De Bruyne</h3>
+            <p>Midfield genius, delivering <span class="highlight">incredible assists</span> and goals.</p>
+        </div>
+    </div>
+</section>
+
+<section id="matches">
+    <h2>Match Centre</h2>
+    <p>Stay updated with <span class="highlight">live scores</span>, fixtures, and highlights!</p>
+    <div class="grid">
+        <div class="card">
+            <h3>Next Match</h3>
+            <p>Manchester City vs. Manchester United</p>
+            <p>Date: <span class="highlight">November 23, 2025</span> | 5 PM GMT | Etihad Stadium</p>
+            <div class="countdown" id="countdown"></div>
+        </div>
+        <div class="card">
+            <h3>Last Match Highlights</h3>
+            <p>City 3 - 1 Liverpool | <span class="highlight">Haaland Hat-trick!</span></p>
+        </div>
+    </div>
+</section>
+
+<section id="news">
+    <h2>Latest News</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Haaland Hits Hat-trick!</h3>
+            <p>Erling Haaland continues his <span class="highlight">unstoppable form</span> in the Premier League.</p>
+        </div>
+        <div class="card">
+            <h3>City Aim for 5th Consecutive Title</h3>
+            <p>Pep Guardiola leads Manchester City in pursuit of <span class="highlight">more glory</span>.</p>
+        </div>
+    </div>
+</section>
+
+<section id="fans">
+    <h2>Fan Zone</h2>
+    <p>Share your stories, photos, and polls with fellow City fans worldwide!</p>
+    <div class="grid">
+        <div class="card">
+            <h3>Photo Gallery</h3>
+            <img src="fan-photo1.jpg" alt="Fans celebrating">
+        </div>
+        <div class="card">
+            <h3>Fan Blogs</h3>
+            <p>Read experiences and match stories from supporters across the globe.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Join the Fan Club</h2>
+    <p>Sign up to get the latest updates, match schedules, and exclusive fan content!</p>
+    <form style="max-width:600px;margin:20px auto; display:flex; flex-direction:column; gap:15px;">
+        <input type="text" placeholder="Your Name" required style="padding:12px; border-radius:6px; border:1px solid var(--sky-blue);">
+        <input type="email" placeholder="Your Email" required style="padding:12px; border-radius:6px; border:1px solid var(--sky-blue);">
+        <button type="submit" class="btn">Join Now</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Manchester City Fan Club | All Rights Reserved<section id="legends">
+    <h2>Club Legends & Current Stars</h2>
+    <div class="grid">
+        <!-- Sergio Aguero -->
+        <div class="card">
+            <h3>Sergio Agüero</h3>
+            <div class="carousel">
+                <img src="aguero1.jpg" alt="Sergio Aguero 1">
+                <img src="aguero2.jpg" alt="Sergio Aguero 2">
+                <img src="aguero3.jpg" alt="Sergio Aguero 3">
+                <img src="aguero4.jpg" alt="Sergio Aguero 4">
+                <img src="aguero5.jpg" alt="Sergio Aguero 5">
+            </div>
+            <p>All-time top scorer for Manchester City with 260 goals in all competitions. Known for his iconic <span class="highlight">“Aguerooo” goal</span> that won City the 2011-12 Premier League.</p>
+            <p>Fun Fact: Agüero has <span class="highlight">five Premier League Golden Boot awards</span> and scored the fastest hat-trick in Premier League history (180 seconds!).</p>
+        </div>
+
+        <!-- Yaya Touré -->
+        <div class="card">
+            <h3>Yaya Touré</h3>
+            <div class="carousel">
+                <img src="yaya1.jpg" alt="Yaya Toure 1">
+                <img src="yaya2.jpg" alt="Yaya Toure 2">
+                <img src="yaya3.jpg" alt="Yaya Toure 3">
+                <img src="yaya4.jpg" alt="Yaya Toure 4">
+                <img src="yaya5.jpg" alt="Yaya Toure 5">
+            </div>
+            <p>Midfield maestro, scoring vital goals and controlling the tempo of games. Helped City win multiple Premier League titles and domestic cups.</p>
+            <p>Fun Fact: Yaya is one of the few players to score in <span class="highlight">five consecutive FA Cup Finals</span>.</p>
+        </div>
+
+        <!-- Erling Haaland -->
+        <div class="card">
+            <h3>Erling Haaland</h3>
+            <div class="carousel">
+                <img src="haaland1.jpg" alt="Erling Haaland 1">
+                <img src="haaland2.jpg" alt="Erling Haaland 2">
+                <img src="haaland3.jpg" alt="Erling Haaland 3">
+                <img src="haaland4.jpg" alt="Erling Haaland 4">
+                <img src="haaland5.jpg" alt="Erling Haaland 5">
+            </div>
+            <p>Current star striker known for his speed, power, and deadly finishing. Broke multiple Premier League scoring records in his debut season.</p>
+            <p>Fun Fact: Haaland scored <span class="highlight">36 goals in 35 Premier League games</span> in his first season, the fastest to reach 20 league goals in Premier League history.</p>
+        </div>
+
+        <!-- Kevin De Bruyne -->
+        <div class="card">
+            <h3>Kevin De Bruyne</h3>
+            <div class="carousel">
+                <img src="debruyne1.jpg" alt="Kevin De Bruyne 1">
+                <img src="debruyne2.jpg" alt="Kevin De Bruyne 2">
+                <img src="debruyne3.jpg" alt="Kevin De Bruyne 3">
+                <img src="debruyne4.jpg" alt="Kevin De Bruyne 4">
+                <img src="debruyne5.jpg" alt="Kevin De Bruyne 5">
+            </div>
+            <p>Premier League’s creative genius. Known for precise passing, long-range shots, and key assists. Multiple-time Playmaker of the Season.</p>
+            <p>Fun Fact: Kevin has assisted over <span class="highlight">120 Premier League goals</span> and is one of the best midfielders in the world.</p>
+        </div>
+
+        <!-- Phil Foden -->
+        <div class="card">
+            <h3>Phil Foden</h3>
+            <div class="carousel">
+                <img src="foden1.jpg" alt="Phil Foden 1">
+                <img src="foden2.jpg" alt="Phil Foden 2">
+                <img src="foden3.jpg" alt="Phil Foden 3">
+                <img src="foden4.jpg" alt="Phil Foden 4">
+                <img src="foden5.jpg" alt="Phil Foden 5">
+            </div>
+            <p>Young prodigy of Manchester City, versatile in attack and midfield. Already a Premier League winner and FA Cup champion.</p>
+            <p>Fun Fact: Phil scored the winning goal in the 2023 FA Cup final and is tipped as a future club legend.</p>
+        </div>
+    </div>
+</section>
+</p>
+</footer>
+
+<script>
+    // Countdown Timer for Next Match
+    const countdown = document.getElementById("countdown");
+    const matchDate = new Date("Nov 23, 2025 17:00:00").getTime();
+
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = matchDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24))/(1000*60*60));
+        const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+        const seconds = Math.floor((distance % (1000*60))/1000);
+
+        countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if(distance < 0){
+            clearInterval(interval);
+            countdown.innerHTML = "MATCH STARTED!";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
